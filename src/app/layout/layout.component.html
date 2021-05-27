@@ -1,0 +1,39 @@
+<ng-container>
+  <mat-toolbar>
+    <button mat-icon-button (click)="sidebar?.toggle()">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="20"
+        height="12"
+        viewBox="0 0 20 12"
+      >
+        <path
+          id="ic_dehaze_24px"
+          d="M2,15.5v2H22v-2Zm0-5v2H22v-2Zm0-5v2H22v-2Z"
+          transform="translate(-2 -5.5)"
+          fill="#707070"
+        />
+      </svg>
+    </button>
+    <span> Shop Bridge </span>
+  </mat-toolbar>
+  <mat-sidenav-container class="mat-main-container">
+    <!-- Left sidebar -->
+    <mat-sidenav #sidebar mode="side" position="start" fixedTopGap="56" opened>
+      <mat-nav-list class="nav-list">
+        <a mat-list-item [routerLink]="['']">
+          <mat-icon aria-hidden="false" aria-label="Example home icon">
+            store_mall_directory
+          </mat-icon>
+          <span class="ms-2"> Products </span>
+        </a>
+      </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+      <div class="container-fluid">
+        <router-outlet></router-outlet>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</ng-container>

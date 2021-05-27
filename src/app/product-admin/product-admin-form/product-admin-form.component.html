@@ -1,0 +1,243 @@
+<div class="mt-3">
+  <div class="card">
+    <h5 class="card-header">
+      <span class="fs-6"> {{ isNew ? "Add" : "Edit" }} Product </span>
+    </h5>
+    <div class="card-body">
+      <div class="container-fluid">
+        <form #productForm="ngForm" id="productForm" name="productForm">
+          <div class="row mt-2">
+            <div class="col">
+              <label for="name" class="form-label"
+                >Name <sup class="text-danger">*</sup></label
+              >
+              <input
+                type="text"
+                [(ngModel)]="product.name"
+                name="name"
+                #name="ngModel"
+                required
+                id="name"
+                class="form-control"
+              />
+              <div
+                *ngIf="
+                  name.invalid &&
+                  (name.dirty || name.touched || productForm.submitted)
+                "
+                class="text-danger"
+              >
+                <div
+                  [hidden]="!name.errors?.required"
+                  class="form-text mt-0 text-danger"
+                >
+                  This field is required.
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <label for="mrp" class="form-label">
+                MRP <sup class="text-danger">*</sup></label
+              >
+              <input
+                type="number"
+                [(ngModel)]="product.mrp"
+                name="mrp"
+                #mrp="ngModel"
+                required
+                id="mrp"
+                class="form-control"
+              />
+              <div
+                *ngIf="
+                  mrp.invalid &&
+                  (mrp.dirty || mrp.touched || productForm.submitted)
+                "
+                class="text-danger"
+              >
+                <div
+                  [hidden]="!mrp.errors?.required"
+                  class="form-text mt-0 text-danger"
+                >
+                  This field is required.
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row mt-2">
+            <div class="col">
+              <label for="price" class="form-label"
+                >Price <sup class="text-danger">*</sup></label
+              >
+              <input
+                type="number"
+                [(ngModel)]="product.price"
+                name="price"
+                #price="ngModel"
+                required
+                id="price"
+                class="form-control"
+              />
+
+              <div
+                *ngIf="
+                  price.invalid &&
+                  (price.dirty || price.touched || productForm.submitted)
+                "
+                class="text-danger"
+              >
+                <div
+                  [hidden]="!price.errors?.required"
+                  class="form-text mt-0 text-danger"
+                >
+                  This field is required.
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <label for="quantity" class="form-label"
+                >Quantity <sup class="text-danger">*</sup></label
+              >
+              <input
+                type="number"
+                [(ngModel)]="product.quantity"
+                name="quantity"
+                #quantity="ngModel"
+                required
+                id="quantity"
+                class="form-control"
+              />
+
+              <div
+                *ngIf="
+                  quantity.invalid &&
+                  (quantity.dirty || quantity.touched || productForm.submitted)
+                "
+                class="text-danger"
+              >
+                <div
+                  [hidden]="!quantity.errors?.required"
+                  class="form-text mt-0 text-danger"
+                >
+                  This field is required.
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row mt-2">
+            <div class="col">
+              <label for="Keywords" class="form-label"
+                >Keywords <sup class="text-danger">*</sup></label
+              >
+              <input
+                type="text"
+                [(ngModel)]="product.keywords"
+                name="Keywords"
+                #keywords="ngModel"
+                required
+                id="Keywords"
+                class="form-control"
+              />
+              <div
+                *ngIf="
+                  keywords.invalid &&
+                  (keywords.dirty || keywords.touched || productForm.submitted)
+                "
+                class="text-danger"
+              >
+                <div
+                  [hidden]="!keywords.errors?.required"
+                  class="form-text mt-0 text-danger"
+                >
+                  This field is required.
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <label for="discount" class="form-label"
+                >Discount <sup class="text-danger">*</sup></label
+              >
+              <input
+                type="number"
+                [(ngModel)]="product.discount"
+                name="discount"
+                #discount="ngModel"
+                required
+                id="discount"
+                class="form-control"
+              />
+
+              <div
+                *ngIf="
+                  discount.invalid &&
+                  (discount.dirty || discount.touched || productForm.submitted)
+                "
+                class="text-danger"
+              >
+                <div
+                  [hidden]="!discount.errors?.required"
+                  class="form-text mt-0 text-danger"
+                >
+                  This field is required.
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row mt-2">
+            <div class="col-6">
+              <label for="description" class="form-label"
+                >Description <sup class="text-danger">*</sup></label
+              >
+              <textarea
+                class="form-control"
+                name=""
+                id="description"
+                cols="30"
+                rows="3"
+                [(ngModel)]="product.description"
+                name="description"
+                #description="ngModel"
+                required
+              ></textarea>
+
+              <div
+                *ngIf="
+                  description.invalid &&
+                  (description.dirty ||
+                    description.touched ||
+                    productForm.submitted)
+                "
+                class="text-danger"
+              >
+                <div
+                  [hidden]="!description.errors?.required"
+                  class="form-text mt-0 text-danger"
+                >
+                  This field is required.
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row mt-2">
+            <div class="col text-end">
+              <button
+                type="button"
+                (click)="onClickOfSubmit(productForm)"
+                class="btn btn-success me-2"
+              >
+                {{ isNew ? "Add" : "Update" }}
+              </button>
+              <button
+                type="button"
+                class="btn btn-outline-secondary"
+                [routerLink]="['/']"
+              >
+                Cancel
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
